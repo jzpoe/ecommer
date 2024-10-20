@@ -1,7 +1,6 @@
 'use client'
 import loadPost from "@/app/fecthId/page";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 
 
@@ -10,7 +9,7 @@ async function Favoritos({ params }) {
 
   
 
-  const router = useRouter();
+  
   const post = await loadPost(params.postId);
 
   // if (!post || Object.keys(post).length === 0) {
@@ -44,11 +43,11 @@ async function Favoritos({ params }) {
             className="w-full h-full object-contain rounded"
           />
         </div>
-        
-          <button onClick={()=> router.push('/')}  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
+        <Link href="/">
+          <button  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
             volver
           </button>
-        
+          </Link>
         <Link href="/">
           <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
             Comprar
