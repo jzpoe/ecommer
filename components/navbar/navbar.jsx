@@ -10,9 +10,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex space-x-4">
-          <Link href="/products/carrito">
+          {/* <Link href="/products/carrito">
             Carrito
-          </Link>
+          </Link> */}
           <Link href="/about">
             Acerca de
           </Link>
