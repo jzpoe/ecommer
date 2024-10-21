@@ -1,26 +1,28 @@
-'use client'
+'use client';
+
 import loadPost from "@/app/fecthId/page";
+import { dataContext } from "@/components/fecthApi/Fecth";
 import Link from "next/link";
-
-
-
+import {  useContext } from "react";
 
 async function Favoritos({ params }) {
 
-  
+  const {producto, setProducto} = useContext(dataContext)
 
-  
+
+
+  // // Cargar productos desde localStorage al cargar el componente
+  // useEffect(() => {
+  //   const storedProductos = JSON.parse(localStorage.getItem('carrito')) || [];
+  //   setProducto(storedProductos);
+  // }, []);
+
   const post = await loadPost(params.postId);
 
-  // if (!post || Object.keys(post).length === 0) {
-  //   return (
-  //     <div className="flex justify-center items-center min-h-screen">
-  //       <h2 className="text-xl font-bold text-red-500">
-  //         El objeto buscado no existe
-  //       </h2>
-  //     </div>
-  //   );
-  // }
+  const handleComprar = (post) => {
+    setProducto((prevProductos) => [...prevProductos, post]); // Agregar al array de productos
+    console.log("este es el carrito", post);
+  };
 
   return (
     <div className="flex justify-center items-center">
@@ -44,15 +46,15 @@ async function Favoritos({ params }) {
           />
         </div>
         <Link href="/">
-          <button  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
+          <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
             volver
           </button>
-          </Link>
-        <Link href="/">
-          <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
+        </Link>
+        
+          <button onClick={() => handleComprar(post)} className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
             Comprar
           </button>
-        </Link>
+        
       </div>
     </div>
   );

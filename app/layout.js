@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
-import FetchApi from "./fecthApi/page";
+import Fecth from "@/components/fecthApi/Fecth";
 
 
 const geistSans = localFont({
@@ -26,10 +26,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <FetchApi>
+        <Fecth>
         <Navbar/>
         {children}
-        </FetchApi>
+        </Fecth>
       </body>
     </html>
   );

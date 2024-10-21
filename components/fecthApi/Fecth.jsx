@@ -4,8 +4,9 @@ import { createContext, useEffect, useState } from "react";
 
 export const dataContext = createContext();
 
-function FetchApi({ children }) {
+function Fecth({ children }) {
   const [dataFetch, setDataFetch] = useState([]);
+  const [producto, setProducto] = useState([]); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +24,7 @@ function FetchApi({ children }) {
   
     
 
-  return <dataContext.Provider value={{dataFetch}}>{children}</dataContext.Provider>;
+  return <dataContext.Provider value={{dataFetch, producto, setProducto}}>{children}</dataContext.Provider>;
 }
 
-export default FetchApi;
+export default Fecth;

@@ -1,7 +1,7 @@
 "use client"
 
-import { dataContext } from "@/app/fecthApi/page";
 import Link from "next/link";
+import { dataContext } from "../fecthApi/Fecth";
 import { useContext } from "react";
 
 const Cards = () => { // Asegúrate de que esta prop esté presente
